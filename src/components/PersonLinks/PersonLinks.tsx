@@ -11,7 +11,7 @@ type Props = {
 export const PersonLinks: React.FC<Props> = ({ person, people }) => {
   const { slug: id } = useParams();
 
-  const findedPersonByName = (name: string | null) => {
+  const findPersonByName = (name: string | null) => {
     if (!name) {
       return;
     }
@@ -19,8 +19,8 @@ export const PersonLinks: React.FC<Props> = ({ person, people }) => {
     return people.find((item: Person) => item.name === name);
   };
 
-  const mother = findedPersonByName(person.motherName);
-  const father = findedPersonByName(person.fatherName);
+  const mother = findPersonByName(person.motherName);
+  const father = findPersonByName(person.fatherName);
 
   const { slug, name, sex, born, died, motherName, fatherName } = person;
 
